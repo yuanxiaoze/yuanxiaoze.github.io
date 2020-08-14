@@ -22,20 +22,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false};
   </script>
 
-  <meta name="description" content="一、今天的工作内容1.电机：是指依据电磁感应实现电能的转换或传递的一种电磁装置。1.电动机也称马达，主要作用是驱动转矩，提供动力。将电能转换成其他形式能量。2.发电机，在电路中通常用G表示，将其他形式能量转换为电能。2.光电传感器：是把被测量的变化转换成光信号的变化，然后借助光电元件进一步将非电信号转换成电信号。3.步进电机：将电脉冲信号转变为角位移或线位移的开环控制元件。利用脉冲信号的频率和脉冲">
+  <meta name="description" content="一、今天的工作内容1.控制器模块采用AT89C52单片机（与其他设备相比单片机控制简单、方便、快捷），40个引脚，21个外部双向输入\输出端口，它将通用的微处理器和Flash存储器结合在一起。2.电机驱动模块   用单片机控制直流电机使之占空比可调的开关状态下，调整电动机转速。电机驱动采用集成电机驱动芯片L298N。通过单片机的I\O口输入改变芯片控制端的电平，实现对直流电机的操作3.循迹模块采用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单片机循迹小车">
-<meta property="og:url" content="http://yoursite.com/2020/08/14/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BE%AA%E8%BF%B9%E5%B0%8F%E8%BD%A6/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/08/14/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BE%AA%E8%BF%B9%E5%B0%8F%E8%BD%A6-1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、今天的工作内容1.电机：是指依据电磁感应实现电能的转换或传递的一种电磁装置。1.电动机也称马达，主要作用是驱动转矩，提供动力。将电能转换成其他形式能量。2.发电机，在电路中通常用G表示，将其他形式能量转换为电能。2.光电传感器：是把被测量的变化转换成光信号的变化，然后借助光电元件进一步将非电信号转换成电信号。3.步进电机：将电脉冲信号转变为角位移或线位移的开环控制元件。利用脉冲信号的频率和脉冲">
+<meta property="og:description" content="一、今天的工作内容1.控制器模块采用AT89C52单片机（与其他设备相比单片机控制简单、方便、快捷），40个引脚，21个外部双向输入\输出端口，它将通用的微处理器和Flash存储器结合在一起。2.电机驱动模块   用单片机控制直流电机使之占空比可调的开关状态下，调整电动机转速。电机驱动采用集成电机驱动芯片L298N。通过单片机的I\O口输入改变芯片控制端的电平，实现对直流电机的操作3.循迹模块采用">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-08-14T10:35:54.000Z">
-<meta property="article:modified_time" content="2020-08-14T10:36:57.637Z">
+<meta property="article:published_time" content="2020-08-14T10:42:16.000Z">
+<meta property="article:modified_time" content="2020-08-14T10:43:00.507Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://yoursite.com/2020/08/14/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BE%AA%E8%BF%B9%E5%B0%8F%E8%BD%A6/">
+<link rel="canonical" href="http://yoursite.com/2020/08/14/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BE%AA%E8%BF%B9%E5%B0%8F%E8%BD%A6-1/">
 
 
 <script class="page-configurations">
@@ -197,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/14/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BE%AA%E8%BF%B9%E5%B0%8F%E8%BD%A6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/14/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BE%AA%E8%BF%B9%E5%B0%8F%E8%BD%A6-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -224,7 +224,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-08-14 18:35:54 / Modified: 18:36:57" itemprop="dateCreated datePublished" datetime="2020-08-14T18:35:54+08:00">2020-08-14</time>
+              <time title="Created: 2020-08-14 18:42:16 / Modified: 18:43:00" itemprop="dateCreated datePublished" datetime="2020-08-14T18:42:16+08:00">2020-08-14</time>
             </span>
 
           
@@ -236,9 +236,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>一、今天的工作内容<br>1.电机：是指依据电磁感应实现电能的转换或传递的一种电磁装置。1.电动机也称马达，主要作用是驱动转矩，提供动力。将电能转换成其他形式能量。2.发电机，在电路中通常用G表示，将其他形式能量转换为电能。<br>2.光电传感器：是把被测量的变化转换成光信号的变化，然后借助光电元件进一步将非电信号转换成电信号。<br>3.步进电机：将电脉冲信号转变为角位移或线位移的开环控制元件。利用脉冲信号的频率和脉冲数控制转速和停止的位置。</p>
-<p>二、工作规划<br>了解各个硬件的作用及原理。</p>
-<p>明天的工作计划    学习相关硬件的作用及原理<br>分享    硬件：继电器、光耦、脉冲发生器、电位器</p>
+        <p>一、今天的工作内容<br>1.控制器模块<br>采用AT89C52单片机（与其他设备相比单片机控制简单、方便、快捷），40个引脚，21个外部双向输入\输出端口，它将通用的微处理器和Flash存储器结合在一起。<br>2.电机驱动模块<br>   用单片机控制直流电机使之占空比可调的开关状态下，调整电动机转速。电机驱动采用集成电机驱动芯片L298N。通过单片机的I\O口输入改变芯片控制端的电平，实现对直流电机的操作<br>3.循迹模块<br>采用光敏元件，缺点：易受到光源干扰：克服此缺点的方法：采用超高亮度的发光二极管能降低一定的干扰，但是会增加检测系统的消耗。<br>4.电源模块<br>      。。。。。。。。。。。。。。。。。。。。。。。。。。。</p>
+<ol>
+<li>电机：是指依据电磁感应实现电能的转换或传递的一种电磁装置。1.电动机也称马达，主要作用是驱动转矩，提供动力。将电能转换成其他形式能量。2.发电机，在电路中通常用G表示，将其他形式能量转换为电能。</li>
+<li>光电传感器：是把被测量的变化转换成光信号的变化，然后借助光电元件进一步将非电信号转换成电信号。</li>
+<li>步进电机：将电脉冲信号转变为角位移或线位移的开环控制元件。利用脉冲信号的频率和脉冲数控制转速和停止的位置。</li>
+<li>L298N是专用驱动集成电路，属于H桥集成电路，其输出电流较大，功率较大；输出电流2A-4A，最高工作电压50V。其输入端与单片机相连，从而较容易地受单片机控制。当其驱动直流电机时，可以实现电机正转与反转。L298N可以驱动两个二相电机，也可以驱动一个四相电机。</li>
+</ol>
+<p>明天的工作计划    学习相关硬件的作用及原理<br>分享    1.L298N是SGS公司的产品，内部包含4通道逻辑驱动电路，是一种二相和四相电机的专用驱动器。<br>2. 电机的速度，采用pwm调速，U=VCC*(t/T)=a*VCC,占空比是t/T，VCC电源电压，电机速度与占空比成正比。<br>1.专用集成电路：能实现整机系统的设计，性能优越，保密性强。简称ASIC，可以将整个系统集成在一块芯片上。<br>2.H桥集成电路：直流电机控制电路。因电路形状酷似H而得名。通过开关的闭合，将直流电逆变为某个频率或可变频率的交流电。<br>3.3.通常电机的转子为永磁体，当电流流过定子绕组时，定子绕组产生一矢量磁场。该磁场会带动转子旋转一角度，使得转子的一对磁场方向与定子的磁场方向一致。当定子的矢量磁场旋转一个角度。转子也随着该磁场转一个角度。每输入一个电脉冲，电动机转动一个角度前进一步。</p>
 
     </div>
 
@@ -252,14 +257,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/08/13/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BE%AA%E8%BF%B9%E5%B0%8F%E8%BD%A6%E5%B7%A5%E4%BD%9C%E6%97%A5%E6%8A%A58-4/" rel="prev" title="单片机循迹小车工作日报8.4">
-                  <i class="fa fa-chevron-left"></i> 单片机循迹小车工作日报8.4
+                <a href="/2020/08/14/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BE%AA%E8%BF%B9%E5%B0%8F%E8%BD%A6/" rel="prev" title="单片机循迹小车">
+                  <i class="fa fa-chevron-left"></i> 单片机循迹小车
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/08/14/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BE%AA%E8%BF%B9%E5%B0%8F%E8%BD%A6-1/" rel="next" title="单片机循迹小车">
-                  单片机循迹小车 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
