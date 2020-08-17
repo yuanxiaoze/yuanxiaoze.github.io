@@ -30,7 +30,7 @@
 <meta property="og:description" content="小车循迹规则：若小车偏左的，小车将向右偏转；若小车偏右，小车将向左偏转；若小车完全偏离轨道，小车将后退来寻找轨迹。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-16T11:12:14.000Z">
-<meta property="article:modified_time" content="2020-08-16T13:07:51.141Z">
+<meta property="article:modified_time" content="2020-08-17T12:01:58.872Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -222,10 +222,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-08-16 19:12:14 / Modified: 21:07:51" itemprop="dateCreated datePublished" datetime="2020-08-16T19:12:14+08:00">2020-08-16</time>
+              <time title="Created: 2020-08-16 19:12:14" itemprop="dateCreated datePublished" datetime="2020-08-16T19:12:14+08:00">2020-08-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-17 20:01:58" itemprop="dateModified" datetime="2020-08-17T20:01:58+08:00">2020-08-17</time>
+              </span>
 
           
 
@@ -236,9 +242,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>  小车循迹规则：若小车偏左的，小车将向右偏转；若小车偏右，小车将向左偏转；若小车完全偏离轨道，小车将后退来寻找轨迹。<br>   <a id="more"></a><br>   #include&lt;reg52.h&gt;     //寄存器的头文件<br>#include&lt;intrins.h&gt;     //包含延时程序的头文件<br> void delay()<br> {</p>
+        <p>  小车循迹规则：若小车偏左的，小车将向右偏转；若小车偏右，小车将向左偏转；若小车完全偏离轨道，小车将后退来寻找轨迹。<a id="more"></a><br>   #include&lt;reg52.h&gt;     //寄存器的头文件<br>#include&lt;intrins.h&gt;     //包含延时程序的头文件</p>
+<p> //宏定义<br>#define  uchar unsigned char  //无符号八位字符型数据   uchar 代替 unsigned char<br>#define  uint unsigned int   //无符号16位整型数据       uint 代替 unsigned int<br>#define ulong unsigned long   //无符号三十二位长整型    ulong 代替 unsigned long</p>
+<p> //小车的前进状态<br>uchar go=0xFA;         //1111_1010  前进<br>uchar back=0xF5;    //1111_0101  后退<br>uchar left=0xFE;    //1111_1110  左转<br>uchar right=0xFB;   //1111_1011  右转<br> //延时函数<br> void delay()<br> {</p>
 <p> }</p>
-<p> while (1)       //用于对传感器输入的信号进行查询<br> {<br>      if(P3==0x7F)  //0111_1111<br>       P1=left;       //左转<br>       else if(P3==0xBF)  //1011 1111<br>       P1=right;   //右转<br>       else<br>         P1=go    //执行</p>
+<p> while (1)       //用于对传感器输入的信号进行查询<br> {<br>      if(P3==0x7F)  //0111_1111<br>       P1=left;       //左转<br>       else if(P3==0xBF)  //1011 1111<br>       P1=right;   //右转<br>       else<br>         P1=go    //执行向前行驶</p>
 <p> }</p>
 <p> void main()<br> {</p>
 <p> }</p>
