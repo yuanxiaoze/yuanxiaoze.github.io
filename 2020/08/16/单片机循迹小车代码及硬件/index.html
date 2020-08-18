@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false};
   </script>
 
-  <meta name="description" content="小车循迹规则：若小车偏左的，小车将向右偏转；若小车偏右，小车将向左偏转；若小车完全偏离轨道，小车将后退来寻找轨迹。        控制原理&lt;!-- more --&gt;  单片机本电路的控制核心，它接收传感器测得的信号，并控制电机的转动与停止。传感器的输入有两根线， 接单片机的P3.6与3.7引脚。传入放入信号位高低电平，在小车没有走到黑线上时，输入都为低电平，此时单片机会驱动两给 的">
+  <meta name="description" content="小车循迹规则：若小车偏左的，小车将向右偏转；若小车偏右，小车将向左偏转；若小车完全偏离轨道，小车将后退来寻找轨迹。        &lt;!-- more --&gt;控制原理  单片机本电路的控制核心，它接收传感器测得的信号，并控制电机的转动与停止。传感器的输入有两根线， 接单片机的P3.6与3.7引脚。传入放入信号位高低电平，在小车没有走到黑线上时，输入都为低电平，此时单片机会驱动两给 的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单片机循迹小车代码及硬件">
 <meta property="og:url" content="http://yoursite.com/2020/08/16/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BE%AA%E8%BF%B9%E5%B0%8F%E8%BD%A6%E4%BB%A3%E7%A0%81%E5%8F%8A%E7%A1%AC%E4%BB%B6/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="小车循迹规则：若小车偏左的，小车将向右偏转；若小车偏右，小车将向左偏转；若小车完全偏离轨道，小车将后退来寻找轨迹。        控制原理&lt;!-- more --&gt;  单片机本电路的控制核心，它接收传感器测得的信号，并控制电机的转动与停止。传感器的输入有两根线， 接单片机的P3.6与3.7引脚。传入放入信号位高低电平，在小车没有走到黑线上时，输入都为低电平，此时单片机会驱动两给 的">
+<meta property="og:description" content="小车循迹规则：若小车偏左的，小车将向右偏转；若小车偏右，小车将向左偏转；若小车完全偏离轨道，小车将后退来寻找轨迹。        &lt;!-- more --&gt;控制原理  单片机本电路的控制核心，它接收传感器测得的信号，并控制电机的转动与停止。传感器的输入有两根线， 接单片机的P3.6与3.7引脚。传入放入信号位高低电平，在小车没有走到黑线上时，输入都为低电平，此时单片机会驱动两给 的">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-16T11:12:14.000Z">
-<meta property="article:modified_time" content="2020-08-18T12:28:53.080Z">
+<meta property="article:modified_time" content="2020-08-18T12:32:34.952Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-18 20:28:53" itemprop="dateModified" datetime="2020-08-18T20:28:53+08:00">2020-08-18</time>
+                <time title="Modified: 2020-08-18 20:32:34" itemprop="dateModified" datetime="2020-08-18T20:32:34+08:00">2020-08-18</time>
               </span>
 
           
@@ -245,7 +245,7 @@
         <pre><code>  小车循迹规则：若小车偏左的，小车将向右偏转；若小车偏右，小车将向左偏转；若小车完全偏离轨道，小车将后退来寻找轨迹。
 
 
-     控制原理&lt;!-- more --&gt;
+     &lt;!-- more --&gt;控制原理
  单片机本电路的控制核心，它接收传感器测得的信号，并控制电机的转动与停止。传感器的输入有两根线，
 接单片机的P3.6与3.7引脚。传入放入信号位高低电平，在小车没有走到黑线上时，输入都为低电平，此时单片机会驱动两给
 的那几同时转动，不需要转弯，当某端输入高电平时，表明小车的相应一侧以走到黑线上，单片机便使该测的电机停止转动，另一侧
