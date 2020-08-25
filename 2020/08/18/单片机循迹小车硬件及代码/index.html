@@ -30,7 +30,7 @@
 <meta property="og:description" content="小车循迹规则：若小车偏左的，小车将向右偏转；若小车偏右，小车将向左偏转；若小车完全偏离轨道，小车将后退来寻找轨迹。         控制原理     单片机本电路的控制核心，它接收传感器测得的信号，并控制电机的转动与停止。传感器的输入有两根线">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-18T14:11:26.000Z">
-<meta property="article:modified_time" content="2020-08-20T13:15:22.824Z">
+<meta property="article:modified_time" content="2020-08-25T12:58:14.688Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-20 21:15:22" itemprop="dateModified" datetime="2020-08-20T21:15:22+08:00">2020-08-20</time>
+                <time title="Modified: 2020-08-25 20:58:14" itemprop="dateModified" datetime="2020-08-25T20:58:14+08:00">2020-08-25</time>
               </span>
 
           
@@ -242,48 +242,39 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p> 小车循迹规则：若小车偏左的，小车将向右偏转；若小车偏右，小车将向左偏转；若小车完全偏离轨道，小车将后退来寻找轨迹。<br>         控制原理<br>     单片机本电路的控制核心，它接收传感器测得的信号，并控制电机的转动与停止。传感器的输入有两根线<a id="more"></a><br>    接单片机的P3.6与3.7引脚。传入放入信号位高低电平，在小车没有走到黑线上时，输入都为低电平，此时单片机会驱动两给<br>    的那几同时转动，不需要转弯，当某端输入高电平时，表明小车的相应一侧以走到黑线上，单片机便使该测的电机停止转动，另一侧<br>    的继续转动，知道两侧都不走到黑线上，程序采用轮询的方式，可以及时检测到是否走到黑线上。<br>       循迹原理<br>     循迹是指小车在白色地板上循黑线行走;通常采用的方法是红外探测法，红外探测是指利用红外线不同颜色的物体表面具有<br>    不同的反射性质的特点，在小车行驶过程中不断地向地面发射红外光，当红外光遇到白色纸质地板时发生漫反射反射光被装在小车上的<br>    接收管接收，如果遇到黑线则红外光被吸收在小车上的接收管接收不到红外光，单片机就时否收到反射回来的红外光为依据来确定黑线<br>    的位置和小车的行走路线，从而实现小车的循迹功能。红外探测器距离有限 一般不超过3cm。</p>
+        <p> 小车循迹规则：若小车偏左的，小车将向右偏转；若小车偏右，小车将向左偏转；若小车完全偏离轨道，小车将后退来寻找轨迹。<br>         控制原理<br>     单片机本电路的控制核心，它接收传感器测得的信号，并控制电机的转动与停止。传感器的输入有两根线<a id="more"></a><br>    接单片机的P3.6与3.7引脚。传入放入信号位高低电平，在小车没有走到黑线上时，输入都为低电平，此时单片机会驱动两给<br>    的那几同时转动，不需要转弯，当某端输入高电平时，表明小车的相应一侧以走到黑线上，单片机便使该测的电机停止转动，另一侧<br>    的继续转动，知道两侧都不走到黑线上，程序采用轮询的方式，可以及时检测到是否走到黑线上。<br>       循迹原理<br>     循迹是指小车在白色地板上循黑线行走;通常采用的方法是红外探测法，红外探测是指利用红外线不同颜色的物体表面具有<br>    不同的反射性质的特点，在小车行驶过程中不断地向地面发射红外光，当红外光遇到白色纸质地板时发生漫反射反射光被装在小车上的<br>    接收管接收，如果遇到黑线则红外光被吸收在小车上的接收管接收不到红外光，单片机就时否收到反射回来的红外光为依据来确定黑线<br>    的位置和小车的行走路线，从而实现小车的循迹功能。红外探测器距离有限 一般不超过3cm。<br>       PWM调速原理<br>    中文名称是脉冲宽度调制，利用微处理器的数字输出（0，1）来对模拟电路进行控制的一种有效的技术，就是使用数字信号达到一个模拟信号的效果。</p>
 <p> 电源用电池</p>
-<pre><code>#include&lt;reg52.h&gt;     //寄存器的头文件
-#include&lt;intrins.h&gt;     //包含延时程序的头文件
+<p>/<em>头文件</em>/<br>#include&lt;AT89X52.H&gt;      </p>
+<p>/<em>电机驱动定义</em>/<br>#define Left_moto_Stop    {P1_1=0,P1_2=0;}    //左电机停转<br>#define Left_moto_go      {P1_1=1,P1_2=0;}    //左电机正转<br>#define Left_moto_back    {P1_1=0,P1_2=1;}       //左电机反转<br>#define Right_moto_Stop   {P1_4=0,P1_5=0;}      //右电机停转<br>#define Right_moto_go     {P1_4=1,P1_5=0;}      //右电机正转<br>#define Right_moto_back   {P1_4=0,P1_5=1;}      //右电机反转</p>
+<p>#define Left_moto_pwm        P1_0      //PWM信号端<br>#define Right_moto_pwm      P1_3      //PWM信号端<br>#define Left_bizhang_led        P3_4      //左避障传感器<br>#define Right_bizhang_led       P3_5      //右避障传感器<br>#define Left_xunji_led          P3_6      //左循迹传感器<br>#define Right_xunji_led         P3_7      //右循迹传感器 </p>
+<p>sbit BUZZ = P2^3;                 //蜂鸣器引脚</p>
+<p>/<em>PWM调速相关变量</em>/<br>unsigned char pwm_val_left  =0;              //变量定义<br>unsigned char push_val_left =0;              //左电机占空比N/20<br>unsigned char pwm_val_right =0;<br>unsigned char push_val_right=0;              //右电机占空比N/20<br>bit Right_moto_stop=1;<br>bit Left_moto_stop =1;<br>unsigned  int  time=0;</p>
+<p>/<em>延时函数</em>/<br>void delay(unsigned int k)<br>{<br>     unsigned int x,y;<br>     for(x=0;x&lt;k;x++)<br>       for(y=0;y&lt;2000;y++);<br>}</p>
+<p>/<em>小车前进</em>/<br>void  front_run(void)<br>{<br>     push_val_left=15;<br>     push_val_right=15;                            /<em>pwm调速 范围0~20，愈大速度越快</em>/<br>     Left_moto_go;<br>     Right_moto_go;<br>}</p>
+<p>/<em>小车后退</em>/<br>void  back_run(void)<br>{<br>     push_val_left=15;<br>     push_val_right=15;                               /*pwm调速 范围0~20，愈大速度越快 */<br>     Left_moto_back;<br>     Right_moto_back;<br>}</p>
+<p>/<em>小车左转</em>/<br>void  left_run(void)<br>{<br>     push_val_left=5;                            //4.5v<br>     push_val_right=15;<br>     Right_moto_go;<br>     Left_moto_back;                            //右电机转动<br>}</p>
+<p>/<em>小车右转</em>/<br>void  right_run(void)<br>{<br>     push_val_left=16;<br>     push_val_right=8;<br>     Left_moto_go;<br>     Right_moto_back;                        //左电机转动<br>}</p>
+<p>/<em>小车停走</em>/<br>void  stop(void)<br>{<br>     Left_moto_Stop<br>     Right_moto_Stop;                   //左右电机都不转<br>}</p>
+<p>/<em>左电机调速</em>/<br>void pwm_out_left_moto(void)<br>{<br>    if(Left_moto_stop)       //*<br>    {<br>        if(pwm_val_left&lt;=push_val_left)<br>            {<br>                Left_moto_pwm=1;                 /<em>跟定时器结合实现调速</em>/</p>
+<pre><code>        &#125;
+    else 
+        &#123;
+            Left_moto_pwm=0;
 
- //宏定义
-#define  uchar unsigned char  //无符号八位字符型数据   uchar 代替 unsigned char
-#define  uint unsigned int   //无符号16位整型数据       uint 代替 unsigned int
-#define ulong unsigned long   //无符号三十二位长整型    ulong 代替 unsigned long
-
- //小车的前进状态
-uchar go=0xFA;         //1111_1010  前进
-uchar back=0xF5;    //1111_0101  后退
-uchar left=0xFE;    //1111_1110  左转
-uchar right=0xFB;   //1111_1011  右转
- //延时函数
- void delay()
- &#123;
-
-
- &#125;
-
- while (1)       //用于对传感器输入的信号进行查询
- &#123;
-      if(P3==0x7F)  //0111_1111
-       P1=left;       //左转
-       else if(P3==0xBF)  //1011 1111
-       P1=right;   //右转
-       else
-         P1=go    //执行向前行驶
-
-
- &#125;
-
-
-
-
-
- void main()
- &#123;
-
- &#125;</code></pre>
+        &#125;
+    if(pwm_val_left&gt;=20)
+        pwm_val_left=0;
+&#125;
+else    
+&#123;
+    Left_moto_pwm=0;
+&#125;</code></pre>
+<p>}</p>
+<p>/<em>右电机调速</em>/<br>void pwm_out_right_moto(void)<br>{<br>    if(Right_moto_stop)<br>    {<br>        if(pwm_val_right&lt;=push_val_right)                /*跟定时器结合实现调速*/<br>        {<br>            Right_moto_pwm=1;<br>        }<br>    else<br>        {<br>            Right_moto_pwm=0;<br>        }<br>    if(pwm_val_right&gt;=20)<br>           pwm_val_right=0;<br>   }<br>   else<br>   {<br>       Right_moto_pwm=0;</p>
+<p>   }<br>}</p>
+<p>/<em>定时器0初始化</em>/<br>void timer0_Init(void)<br>{<br>    TMOD=0X01;<br>    TH0= 0XFc;          //1ms定时<br>    TL0= 0X18;<br>    TR0= 1;<br>    ET0= 1;<br>    EA = 1;               //开总中断<br>}</p>
+<p>/<em>定时器0中断服务子程序</em>/<br>void timer0()interrupt 1   using 2<br>{<br>   TH0=0XFc;<br>     TL0=0X18;<br>     time++;<br>     pwm_val_left++;             /<em>服务于pwm调速</em>/<br>     pwm_val_right++;             /<em>服务于pwm调速</em>/<br>     pwm_out_left_moto();<br>     pwm_out_right_moto();<br> }    </p>
+<p>/<em>主函数</em>/<br>void main(void)<br>{<br>    unsigned char i;<br>    stop();                    //小车停转<br>  timer0_Init();<br>    while(1)<br>    {<br>        if(Left_bizhang_led==0||Right_bizhang_led==0)<br>           stop();                                         //若有障碍停车<br>        else<br>        {<br>      if(Left_xunji_led==0&amp;&amp;Right_xunji_led==0)        //无黑线<br>            {<br>                front_run();                                       //前进<br>            }<br>            if(Left_xunji_led==1&amp;&amp;Right_xunji_led==0)        //左边有黑线<br>            {<br>                left_run();                                         //左转<br>            }<br>            if(Right_xunji_led==1&amp;&amp;Left_xunji_led==0)        //右边有黑线<br>            {<br>                right_run();                                       //右转<br>            }<br>            if(Right_xunji_led&amp;&amp;Left_xunji_led==1)           //前方有黑线<br>            {<br>                stop();                                             //停车<br>            }<br>        }<br>    }<br>}<br>/<em>game over</em>/</p>
 
     </div>
 
